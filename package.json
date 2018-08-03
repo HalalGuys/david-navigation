@@ -7,6 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "seed-db": "node database-generation.js",
     "build-dev": "webpack -d --watch",
+    "build": "webpack --mode production && grunt s3",
     "server-dev": "nodemon server/index.js"
   },
   "repository": {
@@ -22,6 +23,7 @@
   "dependencies": {
     "express": "^4.16.3",
     "faker": "^4.1.0",
+    "jquery": "^3.3.1",
     "mongod": "^2.0.0",
     "mongoose": "^5.2.6",
     "react": "^16.4.2",
@@ -35,6 +37,8 @@
     "babel-preset-react": "^6.24.1",
     "css-loader": "^1.0.0",
     "file-loader": "^1.1.11",
+    "grunt": "^1.0.3",
+    "grunt-aws-s3": "^2.0.0",
     "nodemon": "^1.18.3",
     "style-loader": "^0.21.0",
     "url-loader": "^1.0.1",

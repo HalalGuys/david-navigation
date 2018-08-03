@@ -1,0 +1,22 @@
+* {
+  font-family: Circular, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 200;
+  color: #484848;
+}
+
+.reviews {
+  /* display: grid;
+  grid-template-rows: 75px 100px 1fr;
+  max-width: 600px; */
+  height: 100%;
+  width: 100%
+}
+
+#searchSection {
+  /* display: grid;
+  grid-row: 1;
+  border-top: 1px solid lightgrey;
+  border-bottom: 1px solid lightgrey; */
+  height: 100%;
+  width: 100%;
+}

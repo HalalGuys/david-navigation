@@ -1,3 +1,3 @@
-import App from './components/App.jsx';
+import Home from './components/Homepage.jsx';
 
-Window.App = App;
+window.Home = Home;
