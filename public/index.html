@@ -7,15 +7,24 @@
     <title>AirBnB Navigation</title>
 </head>
 <body>
-    <div id="navigation"></div>
+    <div id="container">
+      <div id="navigation"></div>
+      <!-- <div id="listing-details"></div>
+      <div id="reviews"></div>
+      <div id="bookings"></div> -->
+    </div>
     <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
     <script src="https://s3-us-west-1.amazonaws.com/fec-nav-static/bundle.js"></script>
+    <script src="https://s3.amazonaws.com/fec-listing-details-static-files/dist/bundle.js"></script>
+    <script src="https://s3-us-west-1.amazonaws.com/david-proxy/bundle.js"></script>
+    <script src="https://s3-us-west-1.amazonaws.com/bookings-module-static-assets/bundle.js"></script>
+    <script src="https://s3.amazonaws.com/photosbundled/app.js"></script>
     <script>
     ReactDOM.render(
         React.createElement(Nav),
         document.getElementById('navigation')
-      );
-      </script>
+    );
+    </script>
 </body>
 </html>
