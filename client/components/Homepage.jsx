@@ -1,6 +1,5 @@
 import React from 'react';
 import styles from './styles/HomeStyle.css';
-import { Redirect } from "react-router-dom";
 
 
 class Homepage extends React.Component {
@@ -39,7 +38,7 @@ class Homepage extends React.Component {
                 <img id={styles.searchIcon} src='https://s3-us-west-1.amazonaws.com/fec-reviews/search.svg' />
               </div>
               <form id={styles.searchForm} onSubmit={this.handleSubmit}>
-                <input id={styles.searchBar} type="text" value={this.state.value} placeholder="Search reviews..." onChange={this.handleChange}/>
+                <input id={styles.searchBar} type="text" value={this.state.value} placeholder="Search listings..." onChange={this.handleChange}/>
               </form>
             </div>
           </div>

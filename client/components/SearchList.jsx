@@ -1,37 +1,46 @@
 import React from 'react';
+// import { withRouter } from 'react-router-dom';
 import $ from 'jquery';
 import SearchEntry from './SearchEntry.jsx';
-import styles from './styles/SearchStyle.css';
+import NavBar from './NavBar.jsx';
+import styles from './styles/Search.css';
 
 class SearchList extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {data: [], matched: []};
+    this.state = {data: [], matched: [], newSearch: false};
     // console.log(this.props.reviews);
+  }
+
+  watchSearch() {
+    this.setState({newSearch: true});
   }
 
   getMatch() {
     let matched = [];
     const listings = this.state.data
-    // console.log('listings: ', listings);
     const searchVal = this.props.match.params.id;
     for (let listing of listings) {
       let listingText = listing.name.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, '').split(' ');
-      console.log('listingText: ', listingText);
       for (let word of listingText) {
-        console.log('word: ', word);
         // partial matching would be better
         if (word.toLowerCase() === searchVal.toLowerCase()) {
           matched.push(listing);
         }
       }
     }
-    console.log('this is matched: ', matched);
     this.setState({matched: matched});
   }
 
-  componentDidMount() {
-    // get request retrieves reviews and aggregated values from server
+  componentDidUpdate() {
+    // this.getData();
+    if (this.state.newSearch) {
+      this.setState({newSearch: false});
+      this.getMatch();
+    }
+  }
+
+  getData() {
     $.ajax({
       url: '/navigation',
       type: 'GET',
@@ -44,6 +53,11 @@ class SearchList extends React.Component {
     });
   }
 
+  componentDidMount() {
+    // get request retrieves reviews and aggregated values from server
+    this.getData();
+  }
+
   render() {
     let searchList = [];
     if (this.state.matched){
@@ -52,10 +66,16 @@ class SearchList extends React.Component {
       });
     }
     const noItems = (<div><h1>No reviews were found.</h1></div>);
+    // const NavBarWithRouter = withRouter(NavBar);
     return (
       // render the navBar here
-      <div id={styles.searchContainer}>
-        {searchList.length === 0 ? noItems : searchList}
+      <div id={styles.searchPage}>
+        <div id={styles.nav}>
+          <NavBar watchSearch={this.watchSearch.bind(this)} />
+        </div>
+        <div id={styles.searchContainer}>
+          {searchList.length && searchList}
+        </div>
       </div>
     );
   }

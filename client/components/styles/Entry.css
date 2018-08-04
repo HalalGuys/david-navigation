@@ -1,0 +1,57 @@
+* {
+  font-family: Circular, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 200;
+  color: #484848;
+}
+
+#container {
+  display: flex;
+  flex-direction: column;
+  /* display: grid;
+  grid-template-rows: 150px 1fr 1fr 20px;
+  grid-row-gap: 5px;
+  align-self: center;
+  justify-self: center;
+  width: 200px;
+  height: fit-content;
+  align-self: flex-start; */
+}
+
+#imageContainer {
+  grid-row: 1;
+  overflow: auto;
+}
+
+#image {
+  width: 100%;
+  max-width: 360px;
+  max-height: 180px;
+  margin: 0 0 0.5rem;
+}
+
+#image:hover {
+  cursor: pointer;
+}
+
+#name {
+  grid-row: 2;
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
+#name:hover {
+  font-weight: 600;
+  color: steelblue;
+  cursor: pointer;
+}
+
+#type {
+  grid-row: 3;
+  font-weight: 400;
+  font-size: 1rem;
+}
+
+#cost {
+  grid-row: 4;
+  font-size: 0.8rem;
+}

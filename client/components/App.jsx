@@ -2,6 +2,8 @@ import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Home from './Homepage.jsx'
 import SearchList from './SearchList.jsx'
+import Listing from './Listing.jsx'
+
 
 class App extends React.Component {
   constructor(props) {
@@ -27,7 +29,7 @@ class App extends React.Component {
           /> */}
           <Route exact path="/" component={Home} />
           <Route path="/list/:id" component={SearchList} />
-          {/* <Route path="/listing/:id" component={Listing} /> */}
+          <Route path="/listing/:id" component={Listing} />
         </div>
       </Router>
     );
