@@ -2,8 +2,8 @@ const express = require('express');
 const db = require('../database/index');
 const app = express();
 
-app.use('/', express.static(`${__dirname}/../public`));
-app.use('/listing/:listingId', express.static(`/${__dirname}/../public`));
+app.use(express.static(`${__dirname}/../public`));
+// app.use('/list/:id', express.static(`/${__dirname}/../public`));
 
 app.use((req, res, next) =>{
   res.setHeader('Access-Control-Allow-Headers', '*');
@@ -13,10 +13,10 @@ app.use((req, res, next) =>{
 });
 
 
-app.get('/navigation/:listingId', (req, res) => {
+app.get('/navigation', (req, res) => {
   // get id
-  let id = req.params.listingId;
-  db.Nav.find({houseId: id}, null).then(((data) => {
+  // let id = req.params.listingId;
+  db.Nav.find({}, null).then(((data) => {
     res.send(data);
   }));
 });

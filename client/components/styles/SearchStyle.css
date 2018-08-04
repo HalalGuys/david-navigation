@@ -1,0 +1,4 @@
+#searchContainer {
+  display: grid;
+  grid-gap: 15px;
+}
