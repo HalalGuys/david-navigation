@@ -1,18 +1,22 @@
 import React from 'react';
 import styles from './styles/HomeStyle.css';
+import { Redirect } from "react-router-dom";
+
 
 class Homepage extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {value: ''};
+    this.state = {value: '', toList: false};
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }  
 
-  handleSubmit(event) {
-    event.preventDefault();
-    this.props.searchSubmit(this.state.value);
-  }
+  handleSubmit() {
+    // this.setState({toList: true});
+    console.log('here');
+    // this.props.pushHistory(`/list/${this.state.value}`);
+    this.props.history.push(`/list/${this.state.value}`);
+  } 
 
   // continuosly updates the value of the input box
   handleChange(event) {
@@ -20,6 +24,9 @@ class Homepage extends React.Component {
   }
 
   render() {
+    // if (this.state.toList) {
+    //   this.props.pushHistory(`/list/${this.state.value}`);
+    // }
     return (
       <div id={styles.homepage}>
         <div id={styles.message}>
@@ -37,9 +44,6 @@ class Homepage extends React.Component {
             </div>
           </div>
       </div>
-      // <div id={styles.homeContainer}>
-      //   Hi
-      // </div>
     );
   }
 };
